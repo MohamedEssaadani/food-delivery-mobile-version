@@ -1,5 +1,5 @@
 import { Card, CardItem } from "native-base";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, TouchableOpacity, Text, Image } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,13 +7,26 @@ import EnlargeShrink from "../Animations/EnLargeShrink";
 import Rating from "./Rating";
 
 function RestaurantItem({ restaurant, displayDetails }) {
-  const dispatch = useDispatch();
   const { favoritesFilm } = useSelector((state) => state.favorites);
 
   // const handleFavorite = () => {
   //   dispatch({ type: "TOGGLE_FAVORITE", value: film })
   // }
 
+  const img = () => {
+    switch (restaurant.picture) {
+      case "/images/amine_restaurant.jpg":
+        return require("../images/amine_restaurant.jpg");
+      case "/images/coin_sandwich.jpg":
+        return require("../images/coin_sandwich.jpg");
+      case "/images/coin_sandwich.jpg":
+        return require("../images/coin_sandwich.jpg");
+      case "/images/fish_place.jpg":
+        return require("../images/fish_place.jpg");
+      default:
+        return require("../images/fish_place.jpg");
+    }
+  };
   return (
     <ScrollView>
       <Card>
@@ -29,14 +42,14 @@ function RestaurantItem({ restaurant, displayDetails }) {
             >
               <Image
                 style={styles.favorite_image}
-                source={require("../Images/ic_favorite_border.png")}
+                source={require("../images/ic_favorite_border.png")}
               />
             </EnlargeShrink>
           </TouchableOpacity>
         </CardItem>
         <CardItem cardBody style={{ justifyContent: "center" }}>
           <TouchableOpacity onPress={() => displayDetails(restaurant._id)}>
-            <Image style={styles.image} src={restaurant.picture} />
+            <Image style={styles.image} source={img()} />
           </TouchableOpacity>
         </CardItem>
         <CardItem>
@@ -54,7 +67,7 @@ function RestaurantItem({ restaurant, displayDetails }) {
 
 const styles = StyleSheet.create({
   image: {
-    width: 120,
+    width: 320,
     height: 180,
     margin: 5,
   },

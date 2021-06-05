@@ -1,11 +1,11 @@
-import React from "react"
-import { StyleSheet, Image } from "react-native"
-import { createAppContainer } from "react-navigation"
-import { createStackNavigator } from "react-navigation-stack"
-import { createBottomTabNavigator } from "react-navigation-tabs"
-import Favorites from "../components/Favorites"
-import FilmDetail from "../components/FilmDetails"
-import Home from "../components/Home"
+import React from "react";
+import { StyleSheet, Image } from "react-native";
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
+import { createBottomTabNavigator } from "react-navigation-tabs";
+import Favorites from "../components/Favorites";
+import FilmDetail from "../components/FilmDetails";
+import Home from "../components/Home";
 
 const HomeStackNavigator = createStackNavigator({
   Home: {
@@ -20,7 +20,7 @@ const HomeStackNavigator = createStackNavigator({
       title: "Film Detail ",
     },
   },
-})
+});
 
 const FavoritesStackNavigator = createStackNavigator({
   Favorites: {
@@ -32,7 +32,7 @@ const FavoritesStackNavigator = createStackNavigator({
   FilmDetail: {
     screen: FilmDetail,
   },
-})
+});
 
 const MoviesTabNavigator = createBottomTabNavigator(
   {
@@ -41,8 +41,8 @@ const MoviesTabNavigator = createBottomTabNavigator(
       navigationOptions: {
         tabBarIcon: () => {
           return (
-            <Image source={require("../Images/home.png")} style={styles.icon} />
-          )
+            <Image source={require("../images/home.png")} style={styles.icon} />
+          );
         },
       },
     },
@@ -52,10 +52,10 @@ const MoviesTabNavigator = createBottomTabNavigator(
         tabBarIcon: () => {
           return (
             <Image
-              source={require("../Images/ic_favorite.png")}
+              source={require("../images/ic_favorite.png")}
               style={styles.icon}
             />
-          )
+          );
         },
       },
     },
@@ -68,13 +68,13 @@ const MoviesTabNavigator = createBottomTabNavigator(
       showIcon: true,
     },
   }
-)
+);
 
 const styles = StyleSheet.create({
   icon: {
     width: 30,
     height: 30,
   },
-})
+});
 
-export default createAppContainer(MoviesTabNavigator)
+export default createAppContainer(MoviesTabNavigator);

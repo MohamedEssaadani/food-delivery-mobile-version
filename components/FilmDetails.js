@@ -1,43 +1,43 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef } from "react";
 import {
   StyleSheet,
   ScrollView,
   Image,
   TouchableOpacity,
   ActivityIndicator,
-} from "react-native"
-import { useDispatch, useSelector } from "react-redux"
-import { getImageFromApi } from "../API/TMDB"
-import { filmDetail, toggleFavoriteAction } from "../actions/filmActions"
-import moment from "moment"
-import { Card, CardItem, Text } from "native-base"
-import EnlargeShrink from "../Animations/EnLargeShrink"
-import Map from "./Map"
-import Reviews from "./Reviews"
-import YoutubePlayer from "react-native-youtube-iframe"
+} from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import { getImageFromApi } from "../API/TMDB";
+import { filmDetail, toggleFavoriteAction } from "../actions/filmActions";
+import moment from "moment";
+import { Card, CardItem, Text } from "native-base";
+import EnlargeShrink from "../Animations/EnLargeShrink";
+import Map from "./Map";
+import Reviews from "./Reviews";
+import YoutubePlayer from "react-native-youtube-iframe";
 
 export default function FilmDetails({ navigation }) {
-  const dispatch = useDispatch()
-  const { loading, error, film } = useSelector((state) => state.film)
-  const { favoritesFilm } = useSelector((state) => state.favorites)
+  const dispatch = useDispatch();
+  const { loading, error, film } = useSelector((state) => state.film);
+  const { favoritesFilm } = useSelector((state) => state.favorites);
 
-  const playerRef = useRef()
+  const playerRef = useRef();
 
   useEffect(() => {
-    dispatch(filmDetail(navigation.state.params.idFilm))
-  }, [navigation.state.params.idFilm, favoritesFilm])
+    dispatch(filmDetail(navigation.state.params.idFilm));
+  }, [navigation.state.params.idFilm, favoritesFilm]);
 
   const handleFavorite = () => {
-    dispatch({ type: "TOGGLE_FAVORITE", value: film })
-  }
+    dispatch({ type: "TOGGLE_FAVORITE", value: film });
+  };
 
   const checkForTime = () => {
     playerRef.current
       ?.getCurrentTime()
       .then((currentTime) =>
         console.log("Video Time View:" + { currentTime }.currentTime)
-      )
-  }
+      );
+  };
 
   if (film != undefined) {
     return (
@@ -70,12 +70,12 @@ export default function FilmDetails({ navigation }) {
             {favoritesFilm.findIndex((item) => item.id === film.id) !== -1 ? (
               <Image
                 style={styles.favorite_image}
-                source={require("../Images/ic_favorite.png")}
+                source={require("../images/ic_favorite.png")}
               />
             ) : (
               <Image
                 style={styles.favorite_image}
-                source={require("../Images/ic_favorite_border.png")}
+                source={require("../images/ic_favorite_border.png")}
               />
             )}
           </EnlargeShrink>
@@ -123,9 +123,9 @@ export default function FilmDetails({ navigation }) {
 
         <Map />
       </ScrollView>
-    )
+    );
   } else {
-    return <ActivityIndicator size="large" color="orange" />
+    return <ActivityIndicator size="large" color="orange" />;
   }
 }
 
@@ -199,4 +199,4 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
   },
-})
+});
