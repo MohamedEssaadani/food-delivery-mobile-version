@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from "react-navigation-tabs";
 import Favorites from "../components/Favorites";
 import FilmDetail from "../components/FilmDetails";
 import Home from "../components/Home";
+import RestaurantDetail from "../components/RestaurantDetail";
 
 const HomeStackNavigator = createStackNavigator({
   Home: {
@@ -18,6 +19,12 @@ const HomeStackNavigator = createStackNavigator({
     screen: FilmDetail,
     navigationOptions: {
       title: "Film Detail ",
+    },
+  },
+  RestaurantDetail: {
+    screen: RestaurantDetail,
+    navigationOptions: {
+      title: "Restaurant Detail ",
     },
   },
 });

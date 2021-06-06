@@ -42,7 +42,7 @@ import { filmList } from "../actions/filmActions";
 
 function Home({ navigation }) {
   const displayDetails = (id) => {
-    navigation.navigate("RestaurantDetail", { id: id });
+    navigation.navigate("RestaurantDetail", { restaurantId: id });
   };
 
   return (

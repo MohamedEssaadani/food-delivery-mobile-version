@@ -1,5 +1,8 @@
 import axios from "axios";
 import {
+  RESTAURANT_DETAILS_FAIL,
+  RESTAURANT_DETAILS_REQUEST,
+  RESTAURANT_DETAILS_SUCCESS,
   RESTAURANT_LIST_FAIL,
   RESTAURANT_LIST_REQUEST,
   RESTAURANT_LIST_SUCCESS,
@@ -48,15 +51,18 @@ export const restaurantDetails = (id) => async (dispatch) => {
       type: RESTAURANT_DETAILS_REQUEST,
     });
 
-    const { data } = await axios.get(`/api/restaurants/${id}`);
+    const { data } = await axios.get(
+      `http://192.168.1.15:5000/api/restaurants/${id}`
+    );
 
+    console.log(data);
     dispatch({
       type: RESTAURANT_DETAILS_SUCCESS,
       payload: data,
     });
   } catch (error) {
     dispatch({
-      type: RESTAURANT_LIST_FAIL,
+      type: RESTAURANT_DETAILS_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
