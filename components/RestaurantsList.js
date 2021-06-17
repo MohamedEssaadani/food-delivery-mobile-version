@@ -13,7 +13,7 @@ function RestaurantList({ displayDetails }) {
 
   useEffect(() => {
     dispatch(listRestaurant());
-  }, []);
+  }, [dispatch]);
 
   return (
     <View>

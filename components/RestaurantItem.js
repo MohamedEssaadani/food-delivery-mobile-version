@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexWrap: "wrap",
     paddingRight: 5,
-    color: "orange",
+    color: "blue",
   },
   vote_text: {
     fontWeight: "bold",
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   },
   date_text: {
     fontSize: 14,
-    color: "orange",
+    color: "blue",
   },
   favorite_container: {
     alignItems: "center",

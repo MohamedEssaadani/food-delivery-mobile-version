@@ -14,9 +14,7 @@ export const listRestaurant = () => async (dispatch) => {
       type: RESTAURANT_LIST_REQUEST,
     });
 
-    const { data } = await axios.get(
-      "http://192.168.1.15:5000/api/restaurants"
-    );
+    const { data } = await axios.get("http://192.168.1.6:5000/api/restaurants");
 
     dispatch({
       type: RESTAURANT_LIST_SUCCESS,
@@ -52,7 +50,7 @@ export const restaurantDetails = (id) => async (dispatch) => {
     });
 
     const { data } = await axios.get(
-      `http://192.168.1.15:5000/api/restaurants/${id}`
+      `http://192.168.1.6:5000/api/restaurants/${id}`
     );
 
     console.log(data);

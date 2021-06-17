@@ -4,7 +4,6 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import Favorites from "../components/Favorites";
-import FilmDetail from "../components/FilmDetails";
 import Home from "../components/Home";
 import RestaurantDetail from "../components/RestaurantDetail";
 
@@ -14,12 +13,6 @@ const HomeStackNavigator = createStackNavigator({
     // navigationOptions: {
     //   title: "Home ",
     // },
-  },
-  FilmDetail: {
-    screen: FilmDetail,
-    navigationOptions: {
-      title: "Film Detail ",
-    },
   },
   RestaurantDetail: {
     screen: RestaurantDetail,
@@ -35,9 +28,6 @@ const FavoritesStackNavigator = createStackNavigator({
     navigationOptions: {
       title: "Favoris",
     },
-  },
-  FilmDetail: {
-    screen: FilmDetail,
   },
 });
 
