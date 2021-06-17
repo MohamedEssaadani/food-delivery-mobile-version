@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useDispatch } from "react-redux";
-import { filmList } from "../actions/filmActions";
 
 function Search() {
   const dispatch = useDispatch();

@@ -7,14 +7,11 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { getImageFromApi } from "../API/TMDB";
-import { filmDetail, toggleFavoriteAction } from "../actions/filmActions";
 import moment from "moment";
 import { Card, CardItem, Text } from "native-base";
 import EnlargeShrink from "../Animations/EnLargeShrink";
 import Map from "./Map";
 import Reviews from "./Reviews";
-import YoutubePlayer from "react-native-youtube-iframe";
 import { restaurantDetails } from "../actions/restaurantActions";
 
 function RestaurantDetail({ navigation }) {
@@ -22,13 +19,12 @@ function RestaurantDetail({ navigation }) {
   const { loading, error, restaurant } = useSelector(
     (state) => state.restaurantDetails
   );
-  const { favoritesFilm } = useSelector((state) => state.favorites);
 
   const playerRef = useRef();
 
   useEffect(() => {
     dispatch(restaurantDetails(navigation.state.params.restaurantId));
-  }, [navigation.state.params.restaurantId, favoritesFilm]);
+  }, [navigation.state.params.restaurantId]);
 
   const handleFavorite = () => {
     dispatch({ type: "TOGGLE_FAVORITE", value: film });

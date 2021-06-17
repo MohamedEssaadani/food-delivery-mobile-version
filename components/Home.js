@@ -35,10 +35,8 @@
 import React, { useEffect, useState } from "react";
 import Search from "./Search";
 import RestaurantsList from "./RestaurantsList";
-import { getFilmsByText } from "../API/TMDB";
 import { View, Text } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { filmList } from "../actions/filmActions";
 
 function Home({ navigation }) {
   const displayDetails = (id) => {

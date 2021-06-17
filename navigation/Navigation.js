@@ -3,7 +3,6 @@ import { StyleSheet, Image } from "react-native";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
-import Favorites from "../components/Favorites";
 import Home from "../components/Home";
 import RestaurantDetail from "../components/RestaurantDetail";
 
@@ -22,15 +21,6 @@ const HomeStackNavigator = createStackNavigator({
   },
 });
 
-const FavoritesStackNavigator = createStackNavigator({
-  Favorites: {
-    screen: Favorites,
-    navigationOptions: {
-      title: "Favoris",
-    },
-  },
-});
-
 const MoviesTabNavigator = createBottomTabNavigator(
   {
     Home: {
@@ -39,19 +29,6 @@ const MoviesTabNavigator = createBottomTabNavigator(
         tabBarIcon: () => {
           return (
             <Image source={require("../images/home.png")} style={styles.icon} />
-          );
-        },
-      },
-    },
-    favorites: {
-      screen: FavoritesStackNavigator,
-      navigationOptions: {
-        tabBarIcon: () => {
-          return (
-            <Image
-              source={require("../images/ic_favorite.png")}
-              style={styles.icon}
-            />
           );
         },
       },

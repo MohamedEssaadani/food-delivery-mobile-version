@@ -2,17 +2,10 @@ import { Card, CardItem } from "native-base";
 import React, { useEffect, useState } from "react";
 import { StyleSheet, TouchableOpacity, Text, Image } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { useDispatch, useSelector } from "react-redux";
 import EnlargeShrink from "../Animations/EnLargeShrink";
 import Rating from "./Rating";
 
 function RestaurantItem({ restaurant, displayDetails }) {
-  const { favoritesFilm } = useSelector((state) => state.favorites);
-
-  // const handleFavorite = () => {
-  //   dispatch({ type: "TOGGLE_FAVORITE", value: film })
-  // }
-
   const img = () => {
     switch (restaurant.picture) {
       case "/images/amine_restaurant.jpg":
@@ -85,7 +78,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexWrap: "wrap",
     paddingRight: 5,
-    color: "blue",
+    color: "#0067FE",
   },
   vote_text: {
     fontWeight: "bold",
@@ -105,7 +98,7 @@ const styles = StyleSheet.create({
   },
   date_text: {
     fontSize: 14,
-    color: "blue",
+    color: "#0067FE",
   },
   favorite_container: {
     alignItems: "center",
